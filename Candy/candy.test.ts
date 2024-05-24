@@ -32,4 +32,8 @@ describe('candy', () => {
   it('should return 5 when ratings has three elements where middle element is zero', () => {
     expect(candy([1, 0, 2])).toBe(5)
   })
+
+  it('should return 12 when the ratings has 7 mixed elements', () => {
+    expect(candy([1,3,2,5,8,4,6])).toBe(12)
+  })
 })
