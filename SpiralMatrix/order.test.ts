@@ -28,4 +28,16 @@ describe('spiralOrder', () => {
   it('should return the correct result for a 4x4 matrix', () => {
     expect(spiralOrder([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]])).toEqual([1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]);
   })
+
+  it('should return the correct value for a 1x3 matrix', () => {
+    expect(spiralOrder([[7],[9],[6]])).toEqual([7, 9, 6])
+  })
+
+  it('should return the correct value for a 1x10 matrix', () => {
+    expect(spiralOrder([[1],[2],[3],[4],[5],[6],[7],[8],[9],[10]])).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+  })
+
+  it('should return the correct value when zeros are on the edges', () => {
+    expect(spiralOrder([[1,2,3],[4,6,0],[7,8,9]])).toEqual([1,2,3,0,9,8,7,4,6])
+  })
 })

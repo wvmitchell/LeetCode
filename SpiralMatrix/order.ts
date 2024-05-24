@@ -8,13 +8,15 @@ export function spiralOrder(matrix: number[][]): number[] {
       let innerRows = matrix.slice(0, matrix.length - 1)
 
       for(let row of innerRows) {
-        ans.push(row.pop())
+        let value = row.pop()
+        Number.isInteger(value) && ans.push(value)
       }
 
       ans = [...ans, ...matrix.pop().reverse()]
 
       for(let row of innerRows.reverse()) {
-        ans.push(row.shift())
+        let value = row.shift()
+        Number.isInteger(value) && ans.push(value)
       }
     }
   }
