@@ -18,4 +18,16 @@ describe('maxPathSum', () => {
     const root = buildTree(nums, 0)
     expect(maxPathSum(root)).toBe(18)
   })
+
+  it('should return 2 for only 2 nodes', () => {
+    const nums = [2, -1]
+    const root = buildTree(nums, 0)
+    expect(maxPathSum(root)).toBe(2)
+  })
+
+  it('should return 3 for only 2 nodes', () => {
+    const nums = [2, 1]
+    const root = buildTree(nums, 0)
+    expect(maxPathSum(root)).toBe(3)
+  })
 })

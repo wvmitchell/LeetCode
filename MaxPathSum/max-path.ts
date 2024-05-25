@@ -19,18 +19,17 @@ export function buildTree(nums: number[], index: number): TreeNode | null {
   return root
 }
 
-export function maxPathSum(root: TreeNode | null, knownMax?: number): number {
-  knownMax = knownMax || root.val
-
-  if(root?.left && root?.right) {
-    const leftMax = maxPath(root.left)
-    const rightMax = maxPath(root.right)
-    knownMax = Math.max(knownMax, leftMax + rightMax + root.val)
-    maxPathSum(root.left, knownMax)
-    maxPathSum(root.right, knownMax)
+export function maxPathSum(root: TreeNode | null, paths: number[] = []): number {
+  if(!root) {
+    return 0
+  } else {
+    const leftMax = Math.max(maxPath(root.left), 0)
+    const rightMax = Math.max(maxPath(root.right), 0)
+    paths.push(leftMax + rightMax + root.val)
+    maxPathSum(root.left, paths)
+    maxPathSum(root.right, paths)
+    return Math.max(...paths)
   }
-
-  return knownMax
 }
 
 function maxPath(root: TreeNode | null): number {
@@ -39,6 +38,6 @@ function maxPath(root: TreeNode | null): number {
   } else if (!root.left && !root.right) {
     return root.val
   } else {
-    return Math.max(maxPath(root.left), maxPath(root.right)) + root.val
+    return Math.max(maxPath(root.left), maxPath(root.right), 0) + root.val
   }
 }
