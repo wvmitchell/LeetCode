@@ -1,6 +1,10 @@
 import { ListNode, hasCycle } from './cycle';
 
 describe('linked list cycle', () => {
+  it('should return false for an empty linked list', () => {
+    expect(hasCycle(null)).toBe(false);
+  })
+
   it('should return false for a one element linked list', () => {
     const head = new ListNode(1);
     expect(hasCycle(head)).toBe(false);
